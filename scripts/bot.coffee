@@ -19,6 +19,7 @@ module.exports = (robot) ->
     row.save()
 
   robot.router.get '/', (req, res) ->
+    app.set('view engine', 'jade')
     res.render('index', {
       from: req.param('from')
       to: req.param('to')
