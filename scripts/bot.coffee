@@ -19,11 +19,8 @@ module.exports = (robot) ->
     row.save()
 
   robot.router.get '/', (req, res) ->
-    html = """
-      <html>
-        aaaaaaaaaaaaaaa
-        aaaaaaaaaaaaaaa
-      </html>
-    """
-    res.type 'html'
-    res.send html
+    res.render('index', {
+      from: req.param('from')
+      to: req.param('to')
+      room: req.param('room')
+    })
